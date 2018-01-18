@@ -42,17 +42,6 @@ public class InventoryManagement {
 		}
 	}
 	
-	public void updateSell(String itemName, int quantity) {
-		System.out.println("updateSell itemName:"+itemName+" quantity:"+quantity);
-		if (records.containsKey(itemName)) {
-			RecordDefinition rdLocal = records.get(itemName);
-			rdLocal.setAvailableQty(rdLocal.getAvailableQty()-quantity);
-			records.replace(itemName, rdLocal);
-			profit += ((rdLocal.getSoldAt() - rdLocal.getBoughtAt()) * quantity); // summation (sellingPrice-costPrice) of the sold items multiplied by no. of items sold
-
-		}
-	}
-	
 	public void report() {
 		System.out.println("Item Name 	Bought At    	Sold At       	AvailableQty    	Value");
 		System.out.println("--------- 	---------    	-------       	-----------     	-------");
